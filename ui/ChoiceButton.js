@@ -1,10 +1,16 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 function ChoiceButton({ title, color }) {
   return (
     <View style={styles.buttonContainer}>
-      <Pressable android_ripple={{ color: "#FFA41B" }} style={styles.button}>
-        <View style={styles.innerContainer}>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => [
+          styles.button,
+          pressed ? styles.buttonPressed : null,
+        ]}
+      >
+        <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
       </Pressable>
@@ -24,16 +30,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    overflow: "hidden",
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
     flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     flex: 1,
     padding: 16,
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 8,
   },
   buttonText: {
     color: "white",
