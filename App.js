@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import "react-native-gesture-handler";
 import HomePage from "./screens/HomePage";
 
 export default function App() {
-  const [open, setOpen] = useState(false);
-
   return (
     <ImageBackground
       source={require("./assets/images/coffee.jpg")}

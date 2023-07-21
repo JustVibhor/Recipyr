@@ -1,10 +1,14 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
-function ChoiceButton({ children }) {
+function ChoiceButton({ title, color }) {
   return (
-    <Pressable style={styles.button}>
-      <Text style={styles.buttonText}>{children}</Text>
-    </Pressable>
+    <View>
+      <Pressable style={styles.button}>
+        <View>
+          <Text style={styles.buttonText}>{title}</Text>
+        </View>
+      </Pressable>
+    </View>
   );
 }
 
@@ -12,7 +16,7 @@ const styles = StyleSheet.create({
   button: {
     width: 120,
     height: 120,
-    backgroundColor: "red",
+    backgroundColor: "#F4D160",
     borderRadius: 6,
     justifyContent: "center",
     alignItems: "center",
@@ -20,8 +24,9 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-    color: "white",
-    fontSize: 18,
+    color: "#FF6666",
+    fontSize: 20,
+    fontWeight: 900,
   },
 });
 
