@@ -2,10 +2,10 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 function ChoiceButton({ title, color }) {
   return (
-    <View>
-      <Pressable style={styles.button}>
-        <View>
-          <Text style={styles.buttonText}>{title}</Text>
+    <View style={styles.buttonContainer}>
+      <Pressable>
+        <View style={styles.innerContainer}>
+          <Text>{title}</Text>
         </View>
       </Pressable>
     </View>
@@ -13,18 +13,22 @@ function ChoiceButton({ title, color }) {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    width: 120,
-    height: 120,
+  buttonContainer: {
+    flex: 1,
+    height: 150,
     backgroundColor: "#F4D160",
-    borderRadius: 6,
+    borderRadius: 8,
+    margin: 15,
+    elevation: 4,
+  },
+  innerContainer: {
+    flex: 1,
+    padding: 16,
     justifyContent: "center",
     alignItems: "center",
-    margin: 5,
-    padding: 5,
   },
   buttonText: {
-    color: "#FF6666",
+    color: "white",
     fontSize: 20,
     fontWeight: 900,
   },
