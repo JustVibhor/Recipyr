@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 
-function MealsOverviewScreen() {
+function MealsOverviewScreen({ route }) {
+  const { itemId } = route.params;
   return (
     <View>
-      <Text>MealsOverviewScreen</Text>
+      <Text>Item: {JSON.stringify(itemId)}</Text>
     </View>
   );
 }
