@@ -2,18 +2,26 @@ import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
 import { CATEGORIES, Item } from "../data/dummy-data";
 import ChoiceButton from "../ui/ChoiceButton";
 
-function renderCategoryItem(itemData) {
+function renderCategoryItem(itemData, navigation) {
+  function PressHandler() {
+    navigation.navigate("MealsOverview");
+  }
+
   return (
-    <ChoiceButton title={itemData.item.title} color={itemData.item.color} />
+    <ChoiceButton
+      title={itemData.item.title}
+      color={itemData.item.color}
+      onPress={PressHandler}
+    />
   );
 }
 
-function HomePage() {
+function HomePage({ navigation }) {
   return (
     <View style={styles.homeContainer}>
       <FlatList
         data={CATEGORIES}
-        renderItem={renderCategoryItem}
+        renderItem={(itemData) => renderCategoryItem(itemData, navigation)}
         keyExtractor={(item) => item.id}
         numColumns={2}
       />

@@ -1,6 +1,6 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
-function ChoiceButton({ title, color }) {
+function ChoiceButton({ title, color, onPress }) {
   return (
     <View style={styles.buttonContainer}>
       <Pressable
@@ -9,9 +9,7 @@ function ChoiceButton({ title, color }) {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
-        onPress={() => {
-          console.log(title);
-        }}
+        onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.buttonText}>{title}</Text>
