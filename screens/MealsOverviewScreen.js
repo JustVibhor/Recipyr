@@ -1,23 +1,29 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { MEALS } from "../data/dummy-data";
+import MealItem from "../ui/MealItem";
 
 function MealsOverviewScreen({ route }) {
-  const { meal, setMeal } = useState();
+  const { mealId } = route.params.itemId;
+  MealItem;
+  const displayedMeals = MEALS.filter((mealItem) => {
+    // if itemId doesnt exist inside mealItem it will return -1
+    return mealItem.categoryIds.indexOf(mealId) >= 0;
+  });
 
-  const { itemId } = route.params;
-
-  function handleItem() {
-    setMeal(() => {
-      return MEALS.find((meal) => meal.id);
-    });
+  function renderMealItems(itemData) {
+    console.log("hello");
+    return <MealItem title={itemData.item.title} />;
   }
 
   return (
     <View>
-      <Text>
-        Item: {JSON.stringify(handleItem)} {meal}
-      </Text>
+      <FlatList
+        data={displayedMeals}
+        renderItem={renderMealItems}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
