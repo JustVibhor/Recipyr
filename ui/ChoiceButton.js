@@ -9,6 +9,9 @@ function ChoiceButton({ title, color }) {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
+        onPress={() => {
+          console.log(title);
+        }}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.buttonText}>{title}</Text>
