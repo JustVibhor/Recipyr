@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     height: 150,
-    backgroundColor: "#FFD9C0",
+    backgroundColor: "transparent",
     borderRadius: 8,
     margin: 15,
     elevation: 4,
