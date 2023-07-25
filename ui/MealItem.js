@@ -10,7 +10,10 @@ import {
 function MealItem({ item }) {
   return (
     <View style={styles.mealItem}>
-      <Pressable android_ripple={{ color: "#FD8A8A" }}>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+      >
         <View style={styles.innerContainer}>
           <View>
             <Image source={{ uri: item.imageUrl }} style={styles.image} />
@@ -38,6 +41,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 3,
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     borderRadius: 8,
