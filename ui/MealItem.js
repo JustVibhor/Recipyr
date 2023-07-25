@@ -1,47 +1,46 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
-import ChoiceButton from "./ChoiceButton";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 function MealItem({ item }) {
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={{ uri: item.imageUrl }}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <View style={styles.button}>
-          <ChoiceButton title={item.title} />
+    <View style={styles.mealItem}>
+      <Pressable android_ripple={{ color: "#FD8A8A" }}>
+        <View>
+          <Image source={{ uri: item.imageUrl }} style={styles.image} />
+          <Text style={styles.title}>{item.title}</Text>
         </View>
-      </ImageBackground>
+        <View style={styles.desc}>
+          <Text>Duration: {item.duration}</Text>
+          <Text>Affordability: {item.affordability}</Text>
+          <Text>complexity: {item.complexity}</Text>
+        </View>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: 200,
-    height: 200,
-    alignContent: "center",
-    justifyContent: "center",
-    margin: 8,
+  mealItem: {
+    margin: 16,
+    borderRadius: 8,
+    overflow: "hidden",
+    backgroundColor: "white",
+    elevation: 4,
+    shadowColor: "black",
   },
+
   image: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 8,
+    width: "100%",
+    height: 200,
   },
-  button: {
-    // opacity: 0,
-  },
-  text: {
-    color: "white",
-    fontSize: 42,
-    lineHeight: 84,
+
+  title: {
+    fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-    backgroundColor: "#000000c0",
+  },
+
+  desc: {
+    // backgroundColor: "#FFF38C",
   },
 });
 
