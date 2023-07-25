@@ -11,14 +11,16 @@ function MealItem({ item }) {
   return (
     <View style={styles.mealItem}>
       <Pressable android_ripple={{ color: "#FD8A8A" }}>
-        <View>
-          <Image source={{ uri: item.imageUrl }} style={styles.image} />
-          <Text style={styles.title}>{item.title}</Text>
-        </View>
-        <View style={styles.desc}>
-          <Text style={styles.detailItem}>{item.duration}</Text>
-          <Text style={styles.detailItem}>{item.affordability}</Text>
-          <Text style={styles.detailItem}>{item.complexity}</Text>
+        <View style={styles.innerContainer}>
+          <View>
+            <Image source={{ uri: item.imageUrl }} style={styles.image} />
+            <Text style={styles.title}>{item.title}</Text>
+          </View>
+          <View style={styles.desc}>
+            <Text style={styles.detailItem}>{item.duration}</Text>
+            <Text style={styles.detailItem}>{item.affordability}</Text>
+            <Text style={styles.detailItem}>{item.complexity}</Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -37,7 +39,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 3,
   },
-
+  innerContainer: {
+    borderRadius: 8,
+    overflow: "hidden",
+  },
   image: {
     width: "100%",
     height: 200,
