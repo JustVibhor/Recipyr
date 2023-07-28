@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 
-function MealOverview({ item }) {
+function MealOverview({ item, style, textStyle }) {
   return (
-    <View style={styles.desc}>
-      <Text style={styles.detailItem}>{item.duration}</Text>
-      <Text style={styles.detailItem}>{item.affordability}</Text>
-      <Text style={styles.detailItem}>{item.complexity}</Text>
+    <View style={[styles.desc, style]}>
+      <Text style={[styles.detailItem, textStyle]}>{item.duration}</Text>
+      <Text style={[styles.detailItem, textStyle]}>{item.affordability}</Text>
+      <Text style={[styles.detailItem, textStyle]}>{item.complexity}</Text>
     </View>
   );
 }
