@@ -1,13 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { MEALS } from "../data/dummy-data";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 import MealItem from "../ui/MealItem";
 
-function MealsOverviewScreen({ route }) {
+function MealsOverviewScreen({ route, navigation }) {
   const mealId = route.params.itemId;
   const displayedMeals = MEALS.filter((mealItem) => {
     // if itemId doesnt exist inside mealItem it will return -1
     return mealItem.categoryIds.indexOf(mealId) >= 0;
+  });
+
+  const categoryTitle = CATEGORIES.find(
+    (category) => category.id === mealId
+  ).title;
+
+  navigation.setOptions({
+    title: categoryTitle,
   });
 
   function renderMealItems(itemData) {
