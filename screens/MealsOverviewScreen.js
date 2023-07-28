@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
@@ -10,13 +11,16 @@ function MealsOverviewScreen({ route, navigation }) {
     return mealItem.categoryIds.indexOf(mealId) >= 0;
   });
 
-  const categoryTitle = CATEGORIES.find(
-    (category) => category.id === mealId
-  ).title;
+  // better than useEffect here as it loads with the component rather than after the component is rendered
+  useLayoutEffect(() => {
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id === mealId
+    ).title;
 
-  navigation.setOptions({
-    title: categoryTitle,
-  });
+    navigation.setOptions({
+      title: categoryTitle,
+    });
+  }, [mealId, navigation]);
 
   function renderMealItems(itemData) {
     return <MealItem item={itemData.item} />;
