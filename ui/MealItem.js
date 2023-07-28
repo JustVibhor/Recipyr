@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import MealOverview from "./MealOverview";
 
 function MealItem({ item }) {
   const navigation = useNavigation();
@@ -26,11 +27,7 @@ function MealItem({ item }) {
             <Image source={{ uri: item.imageUrl }} style={styles.image} />
             <Text style={styles.title}>{item.title}</Text>
           </View>
-          <View style={styles.desc}>
-            <Text style={styles.detailItem}>{item.duration}</Text>
-            <Text style={styles.detailItem}>{item.affordability}</Text>
-            <Text style={styles.detailItem}>{item.complexity}</Text>
-          </View>
+          <MealOverview item={item} />
         </View>
       </Pressable>
     </View>
@@ -67,18 +64,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 8,
     fontWeight: "bold",
-  },
-
-  desc: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 8,
-  },
-  detailItem: {
-    fontSize: 14,
-    marginHorizontal: 4,
-    textAlign: "center",
   },
 });
 
