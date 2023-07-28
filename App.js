@@ -29,9 +29,9 @@ export default function App() {
             name="MealsOverview"
             component={MealsOverviewScreen}
             options={({ route, navigation }) => {
-              const catId = route.params.itemId;
+              const title = route.params.itemTitle;
               return {
-                title: catId,
+                title: title,
               };
             }}
           />

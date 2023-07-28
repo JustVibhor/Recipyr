@@ -4,7 +4,10 @@ import ChoiceButton from "../ui/ChoiceButton";
 
 function renderCategoryItem(itemData, navigation) {
   function PressHandler() {
-    navigation.navigate("MealsOverview", { itemId: itemData.item.id });
+    navigation.navigate("MealsOverview", {
+      itemId: itemData.item.id,
+      itemTitle: itemData.item.title,
+    });
   }
 
   return (
