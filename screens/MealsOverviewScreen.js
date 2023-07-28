@@ -22,12 +22,8 @@ function MealsOverviewScreen({ route, navigation }) {
     });
   }, [mealId, navigation]);
 
-  function PressHandler(item) {
-    navigation.navigate("MealDetails");
-  }
-
   function renderMealItems(itemData) {
-    return <MealItem item={itemData.item} onPress={PressHandler} />;
+    return <MealItem item={itemData.item} />;
   }
 
   return (
